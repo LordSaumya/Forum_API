@@ -5,30 +5,30 @@ class CommentsController < ApplicationController
         render json: @comments
     end
 
-    #GET /Comments/:id [Get a specific thread by its ID]
+    #GET /Comments/:id [Get a specific comment by its ID]
     def show
         @Comment = Comment.find(params[:id])
         render json: @comment
     end
 
-    #POST /Comments [Create a user] 
+    #POST /Comments [Create a comment] 
     def create
-        @comment = Comment.new(thread_params)
+        @comment = Comment.new(comment_params)
         if @comment.save
             render json: @comment
         else
-            render error: {error: "Error in creating thread"}, status: 400
+            render error: {error: "Error in creating comment"}, status: 400
         end
     end
 
-    #PUT /Comments/:id [Update a thread]
+    #PUT /Comments/:id [Update a comment]
     def update
         @comment = Comment.find(params[:id])
         if @comment
-            @comment.update(thread_params)
-            render json: {message: "Thread successfully updated"}, status: 200
+            @comment.update(comment_params)
+            render json: {message: "Comment successfully updated"}, status: 200
         else
-            render error: {error: "Error in updating user"}, status: 400
+            render error: {error: "Error in updating comment"}, status: 400
         end
     end
 

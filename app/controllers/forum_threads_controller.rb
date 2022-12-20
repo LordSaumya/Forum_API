@@ -11,7 +11,7 @@ class ForumThreadsController < ApplicationController
         render json: @thread
     end
 
-    #POST /ForumThreads [Create a user] 
+    #POST /ForumThreads [Create a thread] 
     def create
         @thread = ForumThread.new(thread_params)
         if @thread.save
@@ -28,7 +28,7 @@ class ForumThreadsController < ApplicationController
             @thread.update(thread_params)
             render json: {message: "Thread successfully updated"}, status: 200
         else
-            render error: {error: "Error in updating user"}, status: 400
+            render error: {error: "Error in updating thread"}, status: 400
         end
     end
 
