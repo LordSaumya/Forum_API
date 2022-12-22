@@ -20,7 +20,6 @@ class CommentsController < ApplicationController
             render error: {error: "Error in creating comment"}, status: 400
         end
     end
-    #Edit 
 
     #PUT /Comments/:id [Update a comment]
     def update
