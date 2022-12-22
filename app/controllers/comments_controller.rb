@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
-    #GET /ForumThreads [Get all threads]
+    #GET /Comments [Get all comments for a specific thread]
     def index
-        @comments = Comments.all
-        render json: @comments
+        @Comments = Comment.where(ForumThread_id: params[:forum_thread_id])
+        render json: @Comments
     end
 
     #GET /Comments/:id [Get a specific comment by its ID]
