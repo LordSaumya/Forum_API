@@ -5,7 +5,7 @@ class UsersController < ApplicationController
         render json: @users
     end
     #GET /users/s/:username [Get a specific user by their username]
-    
+
     def search
         @user = User.where(username: params[:username])
         render json: @user
@@ -46,7 +46,6 @@ class UsersController < ApplicationController
         end
     end
 
-    #Private methods
     private
     def user_params
         params.require(:user).permit(:username, :email, :password)
