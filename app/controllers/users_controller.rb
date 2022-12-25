@@ -4,6 +4,12 @@ class UsersController < ApplicationController
         @users = User.all
         render json: @users
     end
+    #GET /users/s/:username [Get a specific user by their username]
+    
+    def search
+        @user = User.where(username: params[:username])
+        render json: @user
+    end
 
     #GET /users/:id [Get a specific user by their ID]
     def show
