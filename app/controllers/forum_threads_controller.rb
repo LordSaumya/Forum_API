@@ -45,6 +45,6 @@ class ForumThreadsController < ApplicationController
 
     private
     def thread_params
-        params.require(:ForumThread).permit(:title, :description, :tag)
+        params.require(:forum_thread).permit(:User_id, :title, :description, :tag)
     end
 end

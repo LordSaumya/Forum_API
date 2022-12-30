@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     #GET /users/s/:username [Get a specific user by their username]
 
     def search
-        @user = User.where(username: params[:username])
+        @user = User.where("username = ?", params[:username])
         render json: @user
     end
 

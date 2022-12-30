@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_24_184604) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_22_173235) do
   create_table "comments", force: :cascade do |t|
     t.integer "User_id", null: false
     t.integer "ForumThread_id", null: false
@@ -39,7 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_24_184604) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "comments", "ForumThreads"
   add_foreign_key "comments", "Users"
-  add_foreign_key "comments", "forum_threads", column: "ForumThread_id"
   add_foreign_key "forum_threads", "Users"
 end
