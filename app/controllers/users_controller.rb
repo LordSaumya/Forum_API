@@ -11,6 +11,18 @@ class UsersController < ApplicationController
         render json: @user
     end
 
+    #GET /users/:username/comments [Get all comments for a specific user]
+    def comments
+          # Find the user with the specified username
+          @user = User.find_by(username: params[:username])
+      
+          # Get all the comments belonging to that user
+          @comments = Comment.where(User_id: @user.id)
+      
+          # Render the comments in the comments template
+          render json: @comments
+    end
+
     #GET /users/:id [Get a specific user by their ID]
     def show
         @user = User.find(params[:id])
@@ -20,6 +32,7 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.save
+            UserMailer.welcome_email(@user).deliver_later
             render json: @user
         else
             render error: {error: "Error in creating user"}, status: 400

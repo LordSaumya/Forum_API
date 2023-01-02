@@ -35,7 +35,11 @@ class ForumThreadsController < ApplicationController
     #DELETE /ForumThreads/:id [Delete a thread]
     def destroy
         @thread = ForumThread.find(params[:id])
+        @comments = Comment.where("ForumThread_id = ?", params[:id])
         if @thread
+            for @comment in @comments
+                @comment.destroy
+            end
             @thread.destroy
             render json: {message: "Thread successfully deleted"}, status: 200
         else

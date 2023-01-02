@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
     #GET /Comments [Get all comments for a specific thread]
     def index
-        @Comments = Comment.where(ForumThread_id: params[:forum_thread_id])
+        @Comments = Comment.where("ForumThread_id = ?", params[:forum_thread_id])
         render json: @Comments
     end
 
@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
         render json: @comment
     end
 
-    #POST /Comments [Create a comment] 
+    #POST /Comments [Create a comment]
     def create
         @comment = Comment.new(comment_params)
         if @comment.save
@@ -36,7 +36,7 @@ class CommentsController < ApplicationController
     def destroy
         @comment = Comment.find(params[:id])
         if @comment
-            @Comment.destroy
+            @comment.destroy
             render json: {message: "Comment successfully deleted"}, status: 200
         else
             render error: {error: "Error in deleting comment"}, status: 400
@@ -44,7 +44,7 @@ class CommentsController < ApplicationController
     end
 
     private
-    def thread_params
-        params.require(:Comment).permit(:comment)
+    def comment_params
+        params.require(:comment).permit(:ForumThread_id, :User_id, :content)
     end
 end
