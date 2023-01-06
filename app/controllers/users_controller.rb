@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.save
-            UserMailer.welcome_email(@user).deliver_later
+            # UserMailer.welcome_email(@user).deliver_later
             render json: @user
         else
             render error: {error: "Error in creating user"}, status: 400
@@ -52,6 +52,15 @@ class UsersController < ApplicationController
     def destroy
         @user = User.find(params[:id])
         if @user
+            @threads = ForumThread.where(User_id: @user.id)
+            for @thread in @threads
+                @thread.destroy
+            end
+            @comments = Comment.where(User_id: @user.id)
+            for @comment in @comments
+                @comment.destroy
+            end
+            
             @user.destroy
             render json: {message: "User successfully deleted"}, status: 200
         else
