@@ -14,22 +14,25 @@ User.create([
     {
         username: "admin",
         email: "admin@gmail.com",
-        password: "$2a$10$yRC0ky6bCAKALscqn72z7uONyFb5a9uWU5OVIZsWcq8WKbwYKm8iy" #Password: AdminLogin1234
+        password: "$2a$10$yRC0ky6bCAKALscqn72z7uONyFb5a9uWU5OVIZsWcq8WKbwYKm8iy", #Password: AdminLogin1234
+        bio: "Admin at your service!"
     },
     {
         username: "user1",
         email: "user1@gmail.com",
-        password: "$2a$10$FXHcLM7tufUWhxMZylxjZ.J43QbEeFEoBs.KSHr1I18SGWSkXkG7K" #Password: Test1234
+        password: "$2a$10$FXHcLM7tufUWhxMZylxjZ.J43QbEeFEoBs.KSHr1I18SGWSkXkG7K", #Password: Test1234
+        bio: "I'm a completely ordinary user! Nothing to see here, move along"
     },
     {
         username: "user2",
         email: "user2@gmail.com",
-        password: "$2a$10$FXHcLM7tufUWhxMZylxjZ.J43QbEeFEoBs.KSHr1I18SGWSkXkG7K" #Password: Test1234
+        password: "$2a$10$FXHcLM7tufUWhxMZylxjZ.J43QbEeFEoBs.KSHr1I18SGWSkXkG7K", #Password: Test1234
+        bio: "I hear user3 hasn't added a bio yet. What a loser!"
     },
     {
         username: "user3",
         email: "user3@gmail.com",
-        password: "$2a$10$FXHcLM7tufUWhxMZylxjZ.J43QbEeFEoBs.KSHr1I18SGWSkXkG7K" #Password: Test1234 
+        password: "$2a$10$FXHcLM7tufUWhxMZylxjZ.J43QbEeFEoBs.KSHr1I18SGWSkXkG7K" #Password: Test1234
     }
 ]);
 

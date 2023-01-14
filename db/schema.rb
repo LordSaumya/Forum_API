@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_22_173235) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_14_101008) do
   create_table "comments", force: :cascade do |t|
     t.integer "User_id", null: false
     t.integer "ForumThread_id", null: false
-    t.string "comment"
+    t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["ForumThread_id"], name: "index_comments_on_ForumThread_id"
@@ -37,9 +37,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_22_173235) do
     t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "bio"
   end
 
-  add_foreign_key "comments", "ForumThreads"
   add_foreign_key "comments", "Users"
+  add_foreign_key "comments", "forum_threads", column: "ForumThread_id"
   add_foreign_key "forum_threads", "Users"
 end
