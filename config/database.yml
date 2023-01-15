@@ -9,19 +9,17 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
   username: "postgres"
+  database: "highgear"
   password: "CVWO@HighGear2023"
 
 development:
   <<: *default
-  database: highgear
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: highgear
 
 production:
   <<: *default
-  database: highgear
