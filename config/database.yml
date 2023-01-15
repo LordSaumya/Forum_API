@@ -9,12 +9,9 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
   encoding: unicode
-  host: localhost
-  username: user
   database: app-dev
   port: 5342
-  password: "CVWO@HighGear2023"
-
+  url: postgres://icuwfbuuklfaiy:f57f29002b3b49266e323291218a0ec96271a384050f945e2a4e208d805f38d1@ec2-63-32-248-14.eu-west-1.compute.amazonaws.com:5432/dmoib2eol456o
 development:
   <<: *default
 
