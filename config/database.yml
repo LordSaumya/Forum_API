@@ -81,6 +81,8 @@ test:
 #
 production:
   <<: *default
-  database: highgear
-  username: postgres
-  password: <%= ENV["HIGHGEAR_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+
